@@ -1,43 +1,28 @@
 // Soldier
 class Soldier {
+  // constructor will define the parameters that need to be passed when creating a new element of the class
   constructor(health, strength) {
-    this.health = health;
-    this.strength = strength;
+    this.health = health; // this.health will create a new attribute. health will be the value passed from the parameter when creating the element.
+    this.strength = strength;// same for strength
   }
 
-  //const soldier1 = new Soldier(50, 5)
-
-  /*const soldier1 = {
-    health: 50,
-    strength: 5
-  }
-  
-  const soldier2 = {
-    health: 60,
-    strength: 3
-  }
-
-  soldier1.attack()  => 5
-  soldier1.receiveDamage(10) => 50 - 10 
-
-  soldier1.receiveDamage(soldier2.attack())  50 - 3  
-  */
-
+// method that returns the strength attribute
   attack() {
     return this.strength;
   }
 
+  // method that will reduce the damage being passed as an argument to the current health
   receiveDamage(damage) {
     this.health -= damage;
   }
 }
 
-// Viking
+// Viking. Comes from parent class Soldier. Will inherit attributes and methods from Soldier
 class Viking extends Soldier {
 
   constructor(name, health, strength) {
-
-    super(health, strength);
+// constructor with the same parameters of Soldier + a new one (name)
+    super(health, strength); // this super will pass the values health and strength as a parameter to the parent class.
     
     this.name = name;
 
@@ -46,7 +31,8 @@ class Viking extends Soldier {
   receiveDamage(damage) {
     
     this.health -= damage;
-
+    
+  // conditional that checks if the Viking is still alive. (this.health > 0)
     if (this.health > 0) {
       return `${this.name} has received ${damage} points of damage`;
     } else {
@@ -58,15 +44,7 @@ class Viking extends Soldier {
     return `Odin Owns You All!`;
   }
 
-  /*
-
-  viking1.attack()
-  viking1.receiveDamage()  //Different from the soldier
-  viking1.battleCry()
-
-  //There is no solider1.battleCry()
-
-  */
+  
 }
 
 // Saxon
@@ -94,41 +72,8 @@ class War {
     this.vikingArmy = [];
     this.saxonArmy = [];
   }
-  /*
-  const war1 = new War()
-  const war2 = new War()
-
-  war1 = {
-    vikingArmy: [],
-    saxonArmy: []
-  }
-
-  war2 = {
-    vikingArmy: [],
-    saxonArmy: []
-  }
-
-  */
-
+  
   addViking(viking) {
-    
-    /*
-    console.log(war) // war {
-      vikingArmy: [],
-      saxonArmy: []
-    }
-    */
-
-    this.newCrazyProperty = 'ascowbvouwbvw';
-
-    /*
-    console.log(war) // war {
-      vikingArmy: [],
-      saxonArmy: []
-      newCrayProperty: 'ascowbvouwbvw'
-    }
-    */
-
     this.vikingArmy.push(viking);
   }
 
@@ -136,28 +81,6 @@ class War {
     this.saxonArmy.push(saxon);
   }
 
-  /*
-
-  const Harald = new Viking("Harald", 50, 5)
-  const Arl = new Viking("Arl", 40, 4)
-
-
-  war1.addViking(Harald)
-  war1.addViking(Arl)
-
-  //console.log(war1.vikingArmy) /// [
-    {
-    name: "Harald",
-    health: 50,
-    strength: 5
-    },{
-    name: "Arl",
-    health: 40,
-    strength: 4
-    },
-  ]
-
-  */
 
   vikingAttack() {
     
